@@ -1,7 +1,7 @@
 @use "@openedx/paragon/styles/css/core/custom-media-breakpoints" as paragonCustomMediaBreakpoints;
 
-@import "~@edx/frontend-component-footer/dist/footer";
-@import "~@edx/frontend-component-header/dist/index";
+@import "~@yorekaid/frontend-component-footer/dist/footer";
+@import "~@yorekaid/frontend-component-header/dist/index";
 
 
 #root {
@@ -13,7 +13,9 @@
 
   main {
     flex-grow: 1;
+    font-size: 14px;
   }
+
   #main-content {
     flex-grow: 1;
     display: flex;
@@ -28,8 +30,9 @@
       box-sizing: content-box;
       position: relative;
       top: 0.1em;
-      height: 1.75rem;
+      height: 3.15rem;
       margin-right: 1rem;
+
       img {
         display: block;
         height: 100%;
@@ -175,6 +178,7 @@
 
   .sequence-navigation-tabs {
     overflow: auto;
+
     .btn {
       flex-basis: 100%;
       min-width: 3rem;
@@ -189,7 +193,7 @@
     max-width: 28rem;
   }
 
-  .navigation-tab-width-medium{
+  .navigation-tab-width-medium {
     max-width: 23.5rem;
   }
 
@@ -204,7 +208,7 @@
       justify-content: flex-start;
       border-right: 0;
 
-      & + .btn {
+      &+.btn {
         border-top: 0;
       }
 
@@ -373,7 +377,7 @@
   // I don't like this.  We need to set a height of 100% on a div created by react-focus-on, a
   // package we use in our Modal.  That div has no class name or ID, so instead we're uniquely
   // identifying it by based on a unique attribute it has which its siblings don't share.
-  > div[data-focus-lock-disabled="false"] {
+  >div[data-focus-lock-disabled="false"] {
     height: 100%;
   }
 
@@ -395,6 +399,7 @@
   &.grades {
     overflow: hidden;
     max-height: 852px;
+
     @media screen and (min-width: 992px) {
       max-height: 920px;
     }
@@ -470,3 +475,203 @@
 @import "course-tabs/course-tabs-navigation.scss";
 @import "courseware/course/sidebar/common/SidebarBase.scss";
 @import "courseware/course/sidebar/sidebars/course-outline/CourseOutlineTray.scss";
+
+// Dark mode overrides
+body.learning-dark-mode {
+  /* Brand color overrides for dark mode (#9D0054 -> Teal) */
+  --pgn-color-brand-base: #2dd4bf !important;
+  --pgn-color-primary: #2dd4bf !important;
+  --pgn-color-primary-light: #5eead4 !important;
+  --pgn-color-primary-dark: #14b8a6 !important;
+  --pgn-color-primary-hover: #5eead4 !important;
+  --pgn-color-primary-active: #14b8a6 !important;
+  --pgn-color-primary-focus: #2dd4bf !important;
+
+  .btn-brand,
+  .btn-primary {
+    background-color: var(--pgn-color-brand-base) !important;
+    border-color: var(--pgn-color-brand-base) !important;
+    color: #131c2e !important;
+    /* Dark navy text for high contrast on Teal */
+    font-weight: 600 !important;
+
+    &:hover {
+      background-color: var(--pgn-color-primary-hover) !important;
+      border-color: var(--pgn-color-primary-hover) !important;
+      color: #131c2e !important;
+    }
+  }
+
+  .btn-outline-brand,
+  .btn-outline-primary {
+    color: var(--pgn-color-brand-base) !important;
+    border-color: var(--pgn-color-brand-base) !important;
+
+    &:hover {
+      background-color: var(--pgn-color-brand-base) !important;
+      color: #131c2e !important;
+    }
+  }
+
+  .btn-link {
+    color: var(--pgn-color-brand-base) !important;
+
+    &:hover {
+      color: var(--pgn-color-primary-light) !important;
+    }
+  }
+
+  .badge,
+  .pgn__chip {
+    background-color: #1e2d45 !important;
+    color: #dde3ed !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+
+    button {
+      color: #dde3ed !important;
+
+      &:hover {
+        color: #ff6b9e !important;
+        /* Slightly red/pink on close hover */
+      }
+    }
+  }
+
+  .form-control,
+  .form-select,
+  .form-check-input {
+    background-color: #1e2d45 !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    color: #dde3ed !important;
+
+    &:focus {
+      border-color: var(--pgn-color-brand-base) !important;
+      box-shadow: 0 0 0 0.25rem rgba(45, 212, 191, 0.25) !important;
+      /* Teal focus */
+    }
+  }
+
+  .form-check-input:checked {
+    background-color: var(--pgn-color-brand-base) !important;
+    border-color: var(--pgn-color-brand-base) !important;
+  }
+
+  /* Alert / Banner Overrides */
+  .alert {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    color: #dde3ed !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+
+    .alert-heading,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    span,
+    div {
+      color: #dde3ed !important;
+    }
+  }
+
+  .alert-info {
+    border-left: 4px solid #38bdf8 !important;
+
+    .alert-icon {
+      color: #38bdf8 !important;
+    }
+  }
+
+  .alert-warning {
+    border-left: 4px solid #fbbf24 !important;
+
+    .alert-icon {
+      color: #fbbf24 !important;
+    }
+  }
+
+  .alert-success {
+    border-left: 4px solid #34d399 !important;
+
+    .alert-icon {
+      color: #34d399 !important;
+    }
+  }
+
+  .alert-danger {
+    border-left: 4px solid #f87171 !important;
+
+    .alert-icon {
+      color: #f87171 !important;
+    }
+  }
+
+  background: linear-gradient(135deg, #131c2e 0%, #0d1526 100%);
+  color: #dde3ed !important;
+
+  /* Global font overrides */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6,
+  p,
+  span,
+  div,
+  li,
+  a {
+    color: #dde3ed;
+  }
+
+  a {
+    color: #7daed4;
+
+    &:hover {
+      color: #f8fafc;
+    }
+  }
+
+  /* Learning app specific components overrides */
+  .pgn__card,
+  .card {
+    background-color: #1e2d45 !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+  }
+
+  .sequence-container,
+  .course-outline-tab,
+  .course-tabs-navigation,
+  .learning-sequence {
+    background-color: transparent !important;
+  }
+
+  .nav-underline-tabs {
+    .nav-link {
+      color: #8fa8c8;
+
+      &:hover,
+      &:focus,
+      &.active {
+        color: var(--pgn-color-brand-base) !important;
+        border-bottom-color: var(--pgn-color-brand-base) !important;
+      }
+    }
+  }
+
+  .sidebar-base {
+    background-color: #1e2d45 !important;
+  }
+
+  hr {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+}

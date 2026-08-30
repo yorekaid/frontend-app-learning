@@ -14,6 +14,7 @@ import DiscussionTab from './course-home/discussion-tab/DiscussionTab';
 
 import messages from './i18n';
 import { UserMessagesProvider } from './generic/user-messages';
+import { ThemeProvider } from './ThemeContext';
 
 import './index.scss';
 import OutlineTab from './course-home/outline-tab';
@@ -42,7 +43,8 @@ subscribe(APP_READY, () => {
 
   root.render(
     <StrictMode>
-      <AppProvider store={store}>
+      <ThemeProvider>
+        <AppProvider store={store}>
         <Helmet>
           <link rel="shortcut icon" href={getConfig().FAVICON_URL} type="image/x-icon" />
         </Helmet>
@@ -149,6 +151,7 @@ subscribe(APP_READY, () => {
           </NoticesProvider>
         </PathFixesProvider>
       </AppProvider>
+      </ThemeProvider>
     </StrictMode>,
   );
 });

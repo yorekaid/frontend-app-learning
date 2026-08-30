@@ -4,7 +4,7 @@ import { Container, Icon, Hyperlink } from '@openedx/paragon';
 import { CheckCircleLightOutline, ErrorOutline } from '@openedx/paragon/icons';
 import { useParams } from 'react-router-dom';
 
-import Header from '@edx/frontend-component-header';
+import Header from '@yorekaid/frontend-component-header';
 import { getConfig } from '@edx/frontend-platform';
 import { sendTrackEvent } from '@edx/frontend-platform/analytics';
 import { logError } from '@edx/frontend-platform/logging';
