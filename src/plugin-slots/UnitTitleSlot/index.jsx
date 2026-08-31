@@ -24,7 +24,7 @@ const UnitTitleSlot = ({
         renderUnitNavigation,
       }}
     >
-      <div className="mb-4">
+      <div className="pb-4 border-bottom" >
         <div className="d-flex justify-content-between align-items-center">
           <div className="d-flex align-items-center">
             <BookmarkButton
