@@ -3,6 +3,19 @@
 @import "~@yorekaid/frontend-component-footer/dist/footer";
 @import "~@yorekaid/frontend-component-header/dist/index";
 
+:root {
+  --pgn-typography-font-family-base: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --pgn-typography-font-family-heading: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-family-sans-serif: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+body {
+  font-family: var(--pgn-typography-font-family-base) !important;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: var(--pgn-typography-font-family-heading) !important;
+}
 
 #root {
   .app-container {
@@ -478,14 +491,21 @@
 
 // Dark mode overrides
 body.learning-dark-mode {
-  /* Brand color overrides for dark mode (#9D0054 -> Teal) */
-  --pgn-color-brand-base: #2dd4bf !important;
-  --pgn-color-primary: #2dd4bf !important;
-  --pgn-color-primary-light: #5eead4 !important;
-  --pgn-color-primary-dark: #14b8a6 !important;
-  --pgn-color-primary-hover: #5eead4 !important;
-  --pgn-color-primary-active: #14b8a6 !important;
-  --pgn-color-primary-focus: #2dd4bf !important;
+  /* Brand color overrides for dark mode */
+  --pgn-color-brand-base: #2693ff !important;
+  --pgn-color-primary: #2693ff !important;
+  --pgn-color-primary-light: #52a9ff !important;
+  --pgn-color-primary-dark: #0077e6 !important;
+  --pgn-color-primary-hover: #52a9ff !important;
+  --pgn-color-primary-active: #0077e6 !important;
+  --pgn-color-primary-focus: #2693ff !important;
+
+  .btn:disabled, .btn.disabled, button:disabled {
+    background-color: #10263a !important;
+    border-color: #10263a !important;
+    color: #8fa8c8 !important;
+    opacity: 0.8 !important;
+  }
 
   .btn {
     font-size: 14px !important;
@@ -612,7 +632,7 @@ body.learning-dark-mode {
     }
   }
 
-  background: linear-gradient(135deg, #131c2e 0%, #0d1526 100%);
+  background: #06111d !important;
   color: #dde3ed !important;
 
   /* Global font overrides */
