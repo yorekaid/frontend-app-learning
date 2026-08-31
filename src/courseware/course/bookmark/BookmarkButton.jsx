@@ -7,19 +7,23 @@ import { Bookmark, BookmarkBorder } from '@openedx/paragon/icons';
 import { removeBookmark, addBookmark } from './data/thunks';
 
 const addBookmarkLabel = (
-  <FormattedMessage
-    id="unit.bookmark.button.add.bookmark"
-    defaultMessage="Bookmark this page"
-    description="The button to bookmark a page"
-  />
+  <span className="sr-only">
+    <FormattedMessage
+      id="unit.bookmark.button.add.bookmark"
+      defaultMessage="Bookmark this page"
+      description="The button to bookmark a page"
+    />
+  </span>
 );
 
 const hasBookmarkLabel = (
-  <FormattedMessage
-    id="unit.bookmark.button.remove.bookmark"
-    defaultMessage="Bookmarked"
-    description="The button to show a page is bookmarked and the button to remove that bookmark"
-  />
+  <span className="sr-only">
+    <FormattedMessage
+      id="unit.bookmark.button.remove.bookmark"
+      defaultMessage="Bookmarked"
+      description="The button to show a page is bookmarked and the button to remove that bookmark"
+    />
+  </span>
 );
 
 const BookmarkButton = ({

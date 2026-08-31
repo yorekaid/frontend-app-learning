@@ -31,9 +31,9 @@ export const CourseOutline = () => {
   } = useCourseOutlineSidebar();
 
   const resolvedSectionId = selectedSection
-        || Object.keys(sections).find(
-          (sectionId):boolean => sections[sectionId].sequenceIds.includes(activeSequenceId),
-        )!;
+    || Object.keys(sections).find(
+      (sectionId): boolean => sections[sectionId].sequenceIds.includes(activeSequenceId),
+    )!;
   const sectionsIds = Object.keys(sections);
   const sequenceIds: string[] = sections[resolvedSectionId]?.sequenceIds || [];
   const backButtonTitle: string | undefined = sections[resolvedSectionId]?.title;
@@ -43,7 +43,7 @@ export const CourseOutline = () => {
     setSelectedSection(null);
   };
 
-  const handleSelectSection = (id:string) => {
+  const handleSelectSection = (id: string) => {
     setDisplaySequenceLevel();
     setSelectedSection(id);
   };

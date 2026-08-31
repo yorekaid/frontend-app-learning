@@ -32,7 +32,7 @@ export const checkResumeRedirect = memoize(
         } else if (firstSequenceId) {
           navigate(`/course/${courseId}/${firstSequenceId}`, { replace: true });
         }
-      }, () => {});
+      }, () => { });
     }
   },
 );
@@ -61,7 +61,7 @@ export const checkSectionToSequenceRedirect = memoize(
       // If the section is non-empty, redirect to its first sequence.
       if (section.sequenceIds && section.sequenceIds[0]) {
         navigate(`/course/${courseId}/${section.sequenceIds[0]}`, { replace: true });
-      // Otherwise, just go to the course root, letting the resume redirect take care of things.
+        // Otherwise, just go to the course root, letting the resume redirect take care of things.
       } else {
         navigate(`/course/${courseId}`, { replace: true });
       }
@@ -329,7 +329,7 @@ class CoursewareContainer extends Component {
     }
   };
 
-  handlePreviousSequenceClick = () => {};
+  handlePreviousSequenceClick = () => { };
 
   render() {
     const {

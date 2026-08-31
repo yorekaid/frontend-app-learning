@@ -24,18 +24,23 @@ const UnitTitleSlot = ({
         renderUnitNavigation,
       }}
     >
-      <div className="d-flex justify-content-between">
-        <div className="mb-0">
-          <h3 className="h3">{unit.title}</h3>
+      <div className="mb-4">
+        <div className="d-flex justify-content-between align-items-center">
+          <div className="d-flex align-items-center">
+            <BookmarkButton
+              unitId={unit.id}
+              isBookmarked={unit.bookmarked}
+              isProcessing={isProcessing}
+            />
+            <div className="mb-0">
+              <h3 className="h3 mb-0">{unit.title}</h3>
+            </div>
+          </div>
+          {renderUnitNavigation(true)}
         </div>
-        {renderUnitNavigation(true)}
+        <p className="sr-only">{formatMessage(messages.headerPlaceholder)}</p>
+
       </div>
-      <p className="sr-only">{formatMessage(messages.headerPlaceholder)}</p>
-      <BookmarkButton
-        unitId={unit.id}
-        isBookmarked={unit.bookmarked}
-        isProcessing={isProcessing}
-      />
     </PluginSlot>
   );
 };

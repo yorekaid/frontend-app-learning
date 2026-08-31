@@ -224,10 +224,10 @@ const Sequence = ({
               renderUnitNavigation={renderUnitNavigation}
             />
             {unitHasLoaded && (
-            <SequenceBottomNavigationSlot
-              {...unitNavigationProps}
-              onNavigate={onNavigate('bottom')}
-            />
+              <SequenceBottomNavigationSlot
+                {...unitNavigationProps}
+                onNavigate={onNavigate('bottom')}
+              />
             )}
           </div>
         </div>

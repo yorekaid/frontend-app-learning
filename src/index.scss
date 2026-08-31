@@ -487,6 +487,10 @@ body.learning-dark-mode {
   --pgn-color-primary-active: #14b8a6 !important;
   --pgn-color-primary-focus: #2dd4bf !important;
 
+  .btn {
+    font-size: 14px !important;
+  }
+
   .btn-brand,
   .btn-primary {
     background-color: var(--pgn-color-brand-base) !important;
@@ -641,17 +645,102 @@ body.learning-dark-mode {
   }
 
   /* Learning app specific components overrides */
-  .pgn__card,
-  .card {
+  .pgn__card, .card {
     background-color: #1e2d45 !important;
     border-color: rgba(255, 255, 255, 0.08) !important;
   }
+  
+  .pgn__card-header, .card-header {
+    background-color: transparent !important;
+    border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+  }
 
-  .sequence-container,
-  .course-outline-tab,
-  .course-tabs-navigation,
+  .pgn__card-header-title, .card-title, .card-subtitle {
+    color: #dde3ed !important;
+  }
+  
+  /* Accordion / Collapsible overrides */
+  .accordion-item, .accordion-header, .accordion-button, .collapsible-card, .collapsible-trigger {
+    background-color: transparent !important;
+    color: #dde3ed !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+  }
+  
+  .accordion-button:not(.collapsed), .collapsible-trigger[aria-expanded="true"] {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    color: var(--pgn-color-brand-base) !important;
+    border-bottom-color: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  .accordion-body, .collapsible-body {
+    background-color: transparent !important;
+    color: #dde3ed !important;
+  }
+
+  /* List group items (often used in accordions/sequences) */
+  .list-group-item {
+    background-color: transparent !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+    color: #dde3ed !important;
+  }
+
+  /* Utility text color overrides for dark mode */
+  .text-dark-500, .text-dark, .text-gray-700 {
+    color: #dde3ed !important;
+  }
+  
+  .text-primary, .text-primary-500 {
+    color: var(--pgn-color-brand-base) !important;
+  }
+
+  .text-gray-400 {
+    color: #8fa8c8 !important;
+  }
+
+  .text-success {
+    color: #34d399 !important;
+  }
+
+  /* Icon Button */
+  .btn-icon {
+    background-color: transparent !important;
+    color: #dde3ed !important;
+    
+    &:hover, &:focus {
+      background-color: rgba(255, 255, 255, 0.1) !important;
+      color: var(--pgn-color-brand-base) !important;
+    }
+  }
+
+
+
+  .bg-light, .bg-light-200 {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+  }
+
+  .border-light {
+    border-color: rgba(255, 255, 255, 0.08) !important;
+  }
+
+  .bg-info-100 {
+    background-color: transparent !important;
+    color: var(--pgn-color-brand-base) !important;
+    
+    * {
+      color: var(--pgn-color-brand-base) !important;
+    }
+  }
+
+  .outline-sidebar-heading-wrapper.bg-light-200, .outline-sidebar-toggle-btn.bg-light-200 {
+    background-color: transparent !important;
+  }
+
   .learning-sequence {
     background-color: transparent !important;
+  }
+  
+  .sequence, .learning-sequence, .sequence-container, .outline-sidebar-heading-wrapper, .course-tabs-navigation {
+    border-color: rgba(255, 255, 255, 0.08) !important;
   }
 
   .nav-underline-tabs {

@@ -5,7 +5,8 @@ import { useState } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { useIntl } from '@edx/frontend-platform/i18n';
-import { Collapsible } from '@openedx/paragon';
+import { IconButton } from '@openedx/paragon';
+import { ExpandMore, ExpandLess } from '@openedx/paragon/icons';
 
 import courseOutlineMessages from '@src/course-home/outline-tab/messages';
 import { useCourseOutlineSidebar } from '../hooks';
@@ -58,31 +59,55 @@ const SidebarSequence = ({
   );
 
   return (
-    <li>
-      <Collapsible
-        className={classNames('mb-2', { 'bg-info-100': isActiveSequence && !open })}
-        styling="card-lg text-break"
-        title={sectionTitle}
-        open={open}
-        onToggle={() => setOpen(!open)}
-      >
-        <ol className="list-unstyled">
-          {unitIds.map((unitId, index) => (
-            <SidebarUnit
-              key={unitId}
-              id={unitId}
-              courseId={courseId}
-              sequenceId={id}
-              unit={units[unitId]}
-              isActive={activeUnitId === unitId}
-              activeUnitId={activeUnitId}
-              isFirst={index === 0}
-              isLocked={type === UNIT_ICON_TYPES.lock}
-              isCompletionTrackingEnabled={isEnabledCompletionTracking}
+    <li className={classNames('mb-2', { 'bg-info-100': isActiveSequence && !open })}>
+      <div className="custom-accordion-card card pgn__card">
+        <div 
+          className="custom-accordion-header d-flex justify-content-between align-items-center p-3"
+          style={{ 
+            cursor: 'pointer',
+            borderBottom: open ? '1px solid rgba(255, 255, 255, 0.08)' : 'none',
+            backgroundColor: open ? 'rgba(255, 255, 255, 0.05)' : 'transparent'
+          }}
+          onClick={() => setOpen(!open)}
+          aria-expanded={open}
+        >
+          <div className="flex-grow-1 row w-100 m-0">
+            {sectionTitle}
+          </div>
+          <div className="ml-3">
+            <IconButton
+              alt={open ? intl.formatMessage(courseOutlineMessages.collapseAll) : intl.formatMessage(courseOutlineMessages.expandAll)}
+              iconAs={open ? ExpandLess : ExpandMore}
+              onClick={(e) => { 
+                e.stopPropagation(); 
+                setOpen(!open); 
+              }}
+              size="sm"
             />
-          ))}
-        </ol>
-      </Collapsible>
+          </div>
+        </div>
+
+        {open && (
+          <div className="custom-accordion-body p-3 border-top border-light">
+            <ol className="list-unstyled m-0">
+              {unitIds.map((unitId, index) => (
+                <SidebarUnit
+                  key={unitId}
+                  id={unitId}
+                  courseId={courseId}
+                  sequenceId={id}
+                  unit={units[unitId]}
+                  isActive={activeUnitId === unitId}
+                  activeUnitId={activeUnitId}
+                  isFirst={index === 0}
+                  isLocked={type === UNIT_ICON_TYPES.lock}
+                  isCompletionTrackingEnabled={isEnabledCompletionTracking}
+                />
+              ))}
+            </ol>
+          </div>
+        )}
+      </div>
     </li>
   );
 };

@@ -48,45 +48,53 @@ const Section: React.FC<Props> = ({
 
   useEffect(() => {
     setOpen(defaultOpen);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <li>
-      <Collapsible
-        className="mb-2"
-        styling="card-lg"
-        title={<SectionTitle {...{ complete, hideFromTOC, title }} />}
-        open={open}
-        onToggle={() => { setOpen(!open); }}
-        iconWhenClosed={(
-          <IconButton
-            alt={intl.formatMessage(messages.openSection)}
-            iconAs={Plus}
-            onClick={() => { setOpen(true); }}
-            size="sm"
-          />
-        )}
-        iconWhenOpen={(
-          <IconButton
-            alt={intl.formatMessage(genericMessages.close)}
-            iconAs={Minus}
-            onClick={() => { setOpen(false); }}
-            size="sm"
-          />
-        )}
-      >
-        <ol className="list-unstyled">
-          {sequenceIds.map((sequenceId, index) => (
-            <SequenceLink
-              key={sequenceId}
-              id={sequenceId}
-              sequence={sequences[sequenceId]}
-              first={index === 0}
+    <li className="mb-2">
+      <div className="custom-accordion-card card pgn__card">
+        <div 
+          className="custom-accordion-header d-flex justify-content-between align-items-center p-3"
+          style={{ 
+            cursor: 'pointer',
+            borderBottom: open ? '1px solid rgba(255, 255, 255, 0.08)' : 'none',
+            backgroundColor: open ? 'rgba(255, 255, 255, 0.05)' : 'transparent'
+          }}
+          onClick={() => setOpen(!open)}
+          aria-expanded={open}
+        >
+          <div className="flex-grow-1">
+            <SectionTitle {...{ complete, hideFromTOC, title }} />
+          </div>
+          <div className="ml-3">
+            <IconButton
+              alt={open ? intl.formatMessage(genericMessages.close) : intl.formatMessage(messages.openSection)}
+              iconAs={open ? Minus : Plus}
+              onClick={(e) => { 
+                e.stopPropagation(); 
+                setOpen(!open); 
+              }}
+              size="sm"
             />
-          ))}
-        </ol>
-      </Collapsible>
+          </div>
+        </div>
+        
+        {open && (
+          <div className="custom-accordion-body p-3">
+            <ol className="list-unstyled m-0">
+              {sequenceIds.map((sequenceId, index) => (
+                <SequenceLink
+                  key={sequenceId}
+                  id={sequenceId}
+                  sequence={sequences[sequenceId]}
+                  first={index === 0}
+                />
+              ))}
+            </ol>
+          </div>
+        )}
+      </div>
     </li>
   );
 };
