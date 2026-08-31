@@ -644,35 +644,129 @@ body.learning-dark-mode {
     }
   }
 
+  /* Grade Bar Overrides */
+  .grade-bar {
+    text {
+      fill: #dde3ed !important;
+    }
+
+    .grade-bar__base {
+      fill: rgba(255, 255, 255, 0.1) !important;
+    }
+  }
+
+  /* Unit Content Overrides */
+  .unit-iframe-wrapper {
+    background-color: transparent !important;
+    color: #dde3ed !important;
+
+    /* Hack: Invert colors for cross-origin LMS iframe to simulate dark mode */
+    iframe {
+      // filter: invert(0.87) hue-rotate(180deg) brightness(1.15) contrast(0.8);
+      filter: invert(1) hue-rotate(180deg);
+      mix-blend-mode: screen;
+    }
+  }
+
+  /* Grade Bar Tooltips */
+  #minimum-grade-tooltip {
+    background-color: #1e3a8a !important;
+    /* Dark Blue */
+    border-color: #1e3a8a !important;
+
+    .arrow::before {
+      border-bottom-color: #1e3a8a !important;
+    }
+
+    .arrow::after {
+      border-bottom-color: #1e3a8a !important;
+    }
+
+    .popover-body {
+      color: #dde3ed !important;
+    }
+  }
+
+  #passing-grade-tooltip {
+    background-color: #065f46 !important;
+    /* Dark Emerald */
+    border-color: #065f46 !important;
+
+    .arrow::before {
+      border-top-color: #065f46 !important;
+    }
+
+    .arrow::after {
+      border-top-color: #065f46 !important;
+    }
+
+    .popover-body {
+      color: #dde3ed !important;
+    }
+  }
+
+  #non-passing-grade-tooltip {
+    background-color: #7f1d1d !important;
+    /* Dark Red */
+    border-color: #7f1d1d !important;
+
+    .arrow::before {
+      border-top-color: #7f1d1d !important;
+    }
+
+    .arrow::after {
+      border-top-color: #7f1d1d !important;
+    }
+
+    .popover-body {
+      color: #dde3ed !important;
+    }
+  }
+
   /* Learning app specific components overrides */
-  .pgn__card, .card {
+  .pgn__card,
+  .card,
+  .raised-card {
     background-color: #1e2d45 !important;
     border-color: rgba(255, 255, 255, 0.08) !important;
   }
-  
-  .pgn__card-header, .card-header {
+
+  .raised-card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  .pgn__card-header,
+  .card-header {
     background-color: transparent !important;
     border-bottom-color: rgba(255, 255, 255, 0.08) !important;
   }
 
-  .pgn__card-header-title, .card-title, .card-subtitle {
+  .pgn__card-header-title,
+  .card-title,
+  .card-subtitle {
     color: #dde3ed !important;
   }
-  
+
   /* Accordion / Collapsible overrides */
-  .accordion-item, .accordion-header, .accordion-button, .collapsible-card, .collapsible-trigger {
+  .accordion-item,
+  .accordion-header,
+  .accordion-button,
+  .collapsible-card,
+  .collapsible-trigger {
     background-color: transparent !important;
     color: #dde3ed !important;
     border-color: rgba(255, 255, 255, 0.1) !important;
   }
-  
-  .accordion-button:not(.collapsed), .collapsible-trigger[aria-expanded="true"] {
+
+  .accordion-button:not(.collapsed),
+  .collapsible-trigger[aria-expanded="true"] {
     background-color: rgba(255, 255, 255, 0.05) !important;
     color: var(--pgn-color-brand-base) !important;
     border-bottom-color: rgba(255, 255, 255, 0.1) !important;
   }
 
-  .accordion-body, .collapsible-body {
+  .accordion-body,
+  .collapsible-body {
     background-color: transparent !important;
     color: #dde3ed !important;
   }
@@ -685,14 +779,21 @@ body.learning-dark-mode {
   }
 
   /* Utility text color overrides for dark mode */
-  .text-dark-500, .text-dark, .text-gray-700 {
+  .text-dark-700,
+  .text-dark-600,
+  .text-dark-500,
+  .text-dark,
+  .text-gray-700 {
     color: #dde3ed !important;
   }
-  
-  .text-primary, .text-primary-500 {
+
+  .text-primary,
+  .text-primary-500,
+  .text-primary-700 {
     color: var(--pgn-color-brand-base) !important;
   }
 
+  .text-gray-500,
   .text-gray-400 {
     color: #8fa8c8 !important;
   }
@@ -705,8 +806,9 @@ body.learning-dark-mode {
   .btn-icon {
     background-color: transparent !important;
     color: #dde3ed !important;
-    
-    &:hover, &:focus {
+
+    &:hover,
+    &:focus {
       background-color: rgba(255, 255, 255, 0.1) !important;
       color: var(--pgn-color-brand-base) !important;
     }
@@ -714,7 +816,8 @@ body.learning-dark-mode {
 
 
 
-  .bg-light, .bg-light-200 {
+  .bg-light,
+  .bg-light-200 {
     background-color: rgba(255, 255, 255, 0.05) !important;
   }
 
@@ -725,22 +828,75 @@ body.learning-dark-mode {
   .bg-info-100 {
     background-color: transparent !important;
     color: var(--pgn-color-brand-base) !important;
-    
+
     * {
       color: var(--pgn-color-brand-base) !important;
     }
   }
 
-  .outline-sidebar-heading-wrapper.bg-light-200, .outline-sidebar-toggle-btn.bg-light-200 {
+  .bg-warning-100 {
+    background-color: rgba(251, 191, 36, 0.2) !important;
+  }
+
+  .bg-danger-100 {
+    background-color: rgba(239, 68, 68, 0.2) !important;
+  }
+
+  .bg-success-100 {
+    background-color: rgba(52, 211, 153, 0.2) !important;
+  }
+
+  .bg-primary-100 {
+    background-color: rgba(56, 189, 248, 0.2) !important;
+  }
+
+  .outline-sidebar-heading-wrapper.bg-light-200,
+  .outline-sidebar-toggle-btn.bg-light-200 {
     background-color: transparent !important;
   }
 
   .learning-sequence {
     background-color: transparent !important;
   }
-  
-  .sequence, .learning-sequence, .sequence-container, .outline-sidebar-heading-wrapper, .course-tabs-navigation {
+
+  .sequence,
+  .learning-sequence,
+  .sequence-container,
+  .outline-sidebar-heading-wrapper,
+  .course-tabs-navigation,
+  .course-sidebar-section {
     border-color: rgba(255, 255, 255, 0.08) !important;
+    background-color: transparent !important;
+  }
+
+  .course-sidebar-section .btn,
+  .btn-tertiary {
+    background-color: transparent !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+    color: #dde3ed !important;
+  }
+
+  /* Dates Tab Timeline Overrides */
+  .dates-day {
+
+    .dates-line-top,
+    .dates-line-bottom {
+      background-color: rgba(255, 255, 255, 0.2) !important;
+      border-color: transparent !important;
+    }
+
+    .dates-dot {
+      border-color: rgba(255, 255, 255, 0.2) !important;
+
+      &.bg-gray-900 {
+        background-color: rgba(255, 255, 255, 0.15) !important;
+      }
+
+      &.dates-bg-today {
+        background-color: var(--pgn-color-brand-base) !important;
+        border-color: var(--pgn-color-brand-base) !important;
+      }
+    }
   }
 
   .nav-underline-tabs {
@@ -753,6 +909,14 @@ body.learning-dark-mode {
         color: var(--pgn-color-brand-base) !important;
         border-bottom-color: var(--pgn-color-brand-base) !important;
       }
+    }
+  }
+
+  .nav-item.nav-link {
+
+    &:hover,
+    &:focus {
+      background-color: rgba(255, 255, 255, 0.05) !important;
     }
   }
 
