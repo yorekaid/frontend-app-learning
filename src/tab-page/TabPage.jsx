@@ -73,7 +73,9 @@ const TabPage = (props) => {
       <HeaderSlot courseOrg={org} courseNumber={number} courseTitle={title} />
 
       {courseStatus === 'loading' && (
-        <PageLoading srMessage={intl.formatMessage(messages.loading)} />
+        <main className="d-flex flex-column flex-grow-1">
+          <PageLoading srMessage={intl.formatMessage(messages.loading)} />
+        </main>
       )}
 
       {['loaded', 'denied'].includes(courseStatus) && (
@@ -82,9 +84,11 @@ const TabPage = (props) => {
 
       {/* courseStatus 'failed' and any other unexpected course status. */}
       {(!['loading', 'loaded', 'denied'].includes(courseStatus)) && (
-        <p className="text-center py-5 mx-auto" style={{ maxWidth: '30em' }}>
-          {errorMessage || intl.formatMessage(messages.failure)}
-        </p>
+        <main className="d-flex flex-column flex-grow-1">
+          <p className="text-center py-5 mx-auto" style={{ maxWidth: '30em' }}>
+            {errorMessage || intl.formatMessage(messages.failure)}
+          </p>
+        </main>
       )}
       <FooterSlot />
     </>

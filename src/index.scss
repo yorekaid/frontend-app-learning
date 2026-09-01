@@ -799,6 +799,8 @@ body.learning-dark-mode {
   }
 
   /* Utility text color overrides for dark mode */
+  .text-dark-900,
+  .text-dark-800,
   .text-dark-700,
   .text-dark-600,
   .text-dark-500,
@@ -809,7 +811,9 @@ body.learning-dark-mode {
 
   .text-primary,
   .text-primary-500,
-  .text-primary-700 {
+  .text-primary-700,
+  .text-accent-a,
+  .text-accent-b {
     color: var(--pgn-color-brand-base) !important;
   }
 
@@ -947,5 +951,66 @@ body.learning-dark-mode {
 
   hr {
     border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  /* Modals, Dropdowns and Tooltips */
+  .modal-content,
+  .modal-header,
+  .modal-footer,
+  .pgn__modal,
+  .pgn__modal-content,
+  .pgn__modal-body,
+  .pgn__modal-hero,
+  .pgn__modal-hero-content,
+  .pgn__sheet-component,
+  .dropdown-menu,
+  .react-joyride__tooltip,
+  .pgn__tour-tooltip,
+  .pgn__checkpoint {
+    background-color: #1e2d45 !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+    color: #dde3ed !important;
+  }
+
+  .react-joyride__tooltip h1,
+  .react-joyride__tooltip h2,
+  .react-joyride__tooltip h3,
+  .react-joyride__tooltip h4,
+  .react-joyride__tooltip h5,
+  .react-joyride__tooltip h6,
+  .react-joyride__tooltip p,
+  .react-joyride__tooltip div,
+  .react-joyride__tooltip span,
+  .pgn__tour-tooltip h1,
+  .pgn__tour-tooltip h2,
+  .pgn__tour-tooltip h3,
+  .pgn__tour-tooltip h4,
+  .pgn__tour-tooltip h5,
+  .pgn__tour-tooltip h6,
+  .pgn__tour-tooltip p,
+  .pgn__tour-tooltip div,
+  .pgn__tour-tooltip span,
+  .pgn__checkpoint,
+  .pgn__checkpoint-body,
+  .pgn__checkpoint-header,
+  .pgn__checkpoint-page-index {
+    color: #dde3ed !important;
+  }
+
+  .pgn__checkpoint[data-popper-placement^="top"] > #pgn__checkpoint-arrow::after {
+    border-top-color: #1e2d45 !important;
+  }
+  .pgn__checkpoint[data-popper-placement^="bottom"] > #pgn__checkpoint-arrow::after {
+    border-bottom-color: #1e2d45 !important;
+  }
+  .pgn__checkpoint[data-popper-placement^="left"] > #pgn__checkpoint-arrow::after {
+    border-left-color: #1e2d45 !important;
+  }
+  .pgn__checkpoint[data-popper-placement^="right"] > #pgn__checkpoint-arrow::after {
+    border-right-color: #1e2d45 !important;
+  }
+
+  .__floater__arrow svg polygon {
+    fill: #1e2d45 !important;
   }
 }

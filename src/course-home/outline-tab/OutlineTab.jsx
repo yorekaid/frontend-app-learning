@@ -9,7 +9,7 @@ import { CourseOutlineTabNotificationsSlot } from '../../plugin-slots/CourseOutl
 import { AlertList } from '../../generic/user-messages';
 
 import CourseDates from './widgets/CourseDates';
-import CourseHandouts from './widgets/CourseHandouts';
+// import CourseHandouts from './widgets/CourseHandouts';
 import StartOrResumeCourseCard from './widgets/StartOrResumeCourseCard';
 import WeeklyLearningGoalCard from './widgets/WeeklyLearningGoalCard';
 import CourseTools from './widgets/CourseTools';
@@ -183,7 +183,7 @@ const OutlineTab = () => {
             <CourseTools />
             <CourseOutlineTabNotificationsSlot courseId={courseId} />
             <CourseDates />
-            <CourseHandouts />
+            {/* <CourseHandouts /> */}
           </div>
         )}
       </div>
