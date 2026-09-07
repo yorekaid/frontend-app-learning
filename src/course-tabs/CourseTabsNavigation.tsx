@@ -19,7 +19,7 @@ export interface CourseTabsNavigationProps {
 const CourseTabsNavigation = ({
   activeTabSlug = undefined,
   tabs,
-}:CourseTabsNavigationProps) => {
+}: CourseTabsNavigationProps) => {
   const intl = useIntl();
   const { show } = useCoursewareSearchState();
 

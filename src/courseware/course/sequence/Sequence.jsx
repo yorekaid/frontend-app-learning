@@ -223,12 +223,12 @@ const Sequence = ({
               isOriginalUserStaff={originalUserIsStaff}
               renderUnitNavigation={renderUnitNavigation}
             />
-            {unitHasLoaded && (
+            {/* {unitHasLoaded && (
               <SequenceBottomNavigationSlot
                 {...unitNavigationProps}
                 onNavigate={onNavigate('bottom')}
               />
-            )}
+            )} */}
           </div>
         </div>
         <RightSidebarSlot courseId={courseId} />

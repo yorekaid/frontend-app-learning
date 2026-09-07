@@ -54,9 +54,9 @@ const Section: React.FC<Props> = ({
   return (
     <li className="mb-2">
       <div className="custom-accordion-card card pgn__card">
-        <div 
+        <div
           className="custom-accordion-header d-flex justify-content-between align-items-center p-3"
-          style={{ 
+          style={{
             cursor: 'pointer',
             borderBottom: open ? '1px solid rgba(255, 255, 255, 0.08)' : 'none',
             backgroundColor: open ? 'rgba(255, 255, 255, 0.05)' : 'transparent'
@@ -71,17 +71,17 @@ const Section: React.FC<Props> = ({
             <IconButton
               alt={open ? intl.formatMessage(genericMessages.close) : intl.formatMessage(messages.openSection)}
               iconAs={open ? Minus : Plus}
-              onClick={(e) => { 
-                e.stopPropagation(); 
-                setOpen(!open); 
+              onClick={(e) => {
+                e.stopPropagation();
+                setOpen(!open);
               }}
               size="sm"
             />
           </div>
         </div>
-        
+
         {open && (
-          <div className="custom-accordion-body p-3">
+          <div className="custom-accordion-body p-3 py-1">
             <ol className="list-unstyled m-0">
               {sequenceIds.map((sequenceId, index) => (
                 <SequenceLink

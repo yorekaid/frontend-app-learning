@@ -36,7 +36,7 @@ const UnitTitleSlot = ({
               <h3 className="h3 mb-0">{unit.title}</h3>
             </div>
           </div>
-          {renderUnitNavigation(true)}
+          {/* {renderUnitNavigation(true)} */}
         </div>
         <p className="sr-only">{formatMessage(messages.headerPlaceholder)}</p>
 

@@ -50,8 +50,8 @@ const SidebarSequence = ({
         {isEnabledCompletionTracking && (
           <span className="sr-only">
             , {intl.formatMessage(complete
-            ? courseOutlineMessages.completedAssignment
-            : courseOutlineMessages.incompleteAssignment)}
+              ? courseOutlineMessages.completedAssignment
+              : courseOutlineMessages.incompleteAssignment)}
           </span>
         )}
       </div>
@@ -61,9 +61,9 @@ const SidebarSequence = ({
   return (
     <li className={classNames('mb-2', { 'bg-info-100': isActiveSequence && !open })}>
       <div className="custom-accordion-card card pgn__card">
-        <div 
+        <div
           className="custom-accordion-header d-flex justify-content-between align-items-center p-3"
-          style={{ 
+          style={{
             cursor: 'pointer',
             borderBottom: open ? '1px solid rgba(255, 255, 255, 0.08)' : 'none',
             backgroundColor: open ? 'rgba(255, 255, 255, 0.05)' : 'transparent'
@@ -78,9 +78,9 @@ const SidebarSequence = ({
             <IconButton
               alt={open ? intl.formatMessage(courseOutlineMessages.collapseAll) : intl.formatMessage(courseOutlineMessages.expandAll)}
               iconAs={open ? ExpandLess : ExpandMore}
-              onClick={(e) => { 
-                e.stopPropagation(); 
-                setOpen(!open); 
+              onClick={(e) => {
+                e.stopPropagation();
+                setOpen(!open);
               }}
               size="sm"
             />
@@ -88,7 +88,7 @@ const SidebarSequence = ({
         </div>
 
         {open && (
-          <div className="custom-accordion-body p-3 border-top border-light">
+          <div className="custom-accordion-body px-3 py-1 border-top border-light">
             <ol className="list-unstyled m-0">
               {unitIds.map((unitId, index) => (
                 <SidebarUnit

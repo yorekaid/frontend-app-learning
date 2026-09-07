@@ -1,3 +1,147 @@
+// Tour Modal Dark Theme and Layout Styles
+
+.new-user-tour-dialog {
+  background-color: #101c2e !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.05) !important;
+  max-width: 32rem !important;
+
+  .pgn__modal-hero {
+    position: relative;
+    min-height: 11.5rem;
+    padding: 2rem 2rem 1.75rem !important;
+    background: linear-gradient(135deg, #091524 0%, #0f243e 55%, #153965 100%) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: -30%;
+      right: -15%;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(38, 147, 255, 0.22) 0%, rgba(38, 147, 255, 0.05) 50%, rgba(38, 147, 255, 0) 70%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .pgn__modal-hero-bg {
+      opacity: 0.25;
+      mix-blend-mode: luminosity;
+      filter: contrast(1.1) brightness(0.9);
+      mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.8) 60%, rgba(0, 0, 0, 1) 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.8) 60%, rgba(0, 0, 0, 1) 100%);
+    }
+
+    .pgn__modal-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 22rem !important;
+    }
+
+    .pgn__modal-title,
+    h2 {
+      font-size: 1.5rem !important;
+      font-weight: 700 !important;
+      line-height: 1.35 !important;
+      color: #ffffff !important;
+      margin: 0 !important;
+      letter-spacing: -0.01em;
+
+      .text-accent-b {
+        color: #2693ff !important;
+        font-weight: 700 !important;
+        display: block;
+        margin-bottom: 0.2rem;
+      }
+    }
+  }
+
+  .pgn__modal-body {
+    background-color: #101c2e !important;
+    padding: 1.5rem 2rem 0.5rem !important;
+    border: none !important;
+
+    &::before,
+    &::after {
+      display: none !important;
+      content: none !important;
+    }
+
+    .pgn__modal-body-content {
+      p,
+      .text-dark-900 {
+        color: #cbd5e1 !important;
+        font-size: 0.975rem !important;
+        line-height: 1.6 !important;
+        margin-bottom: 0 !important;
+      }
+    }
+  }
+
+  .pgn__modal-footer {
+    background-color: #101c2e !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
+    padding: 1.25rem 2rem 1.75rem !important;
+
+    .pgn__action-row {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.75rem;
+      width: 100%;
+
+      .btn {
+        font-size: 0.9rem !important;
+        font-weight: 600 !important;
+        border-radius: 8px !important;
+        padding: 0.55rem 1.35rem !important;
+        transition: all 0.2s ease-in-out !important;
+      }
+
+      .btn-tertiary {
+        background-color: rgba(255, 255, 255, 0.05) !important;
+        border: 1px solid rgba(255, 255, 255, 0.12) !important;
+        color: #94a3b8 !important;
+
+        &:hover,
+        &:focus {
+          background-color: rgba(255, 255, 255, 0.1) !important;
+          border-color: rgba(255, 255, 255, 0.22) !important;
+          color: #ffffff !important;
+          box-shadow: none !important;
+        }
+      }
+
+      .btn-brand {
+        background-color: #2693ff !important;
+        border: 1px solid #2693ff !important;
+        color: #06111d !important;
+        box-shadow: 0 2px 10px rgba(38, 147, 255, 0.35) !important;
+
+        &:hover,
+        &:focus {
+          background-color: #52a9ff !important;
+          border-color: #52a9ff !important;
+          color: #06111d !important;
+          transform: translateY(-1px);
+          box-shadow: 0 4px 14px rgba(38, 147, 255, 0.45) !important;
+        }
+
+        &:active {
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+}
+
 [dir="rtl"] .new-user-tour-dialog .pgn__modal-hero .pgn__modal-hero-bg {
     transform: scaleX(-1);
 }
+
