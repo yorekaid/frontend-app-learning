@@ -241,15 +241,16 @@ const CertificateStatus = () => {
 
   return (
     <section data-testid="certificate-status-component" className="text-dark-700 mb-4">
-      <Card className="bg-light-200 raised-card">
+      <Card className=" raised-card">
         <ProgressCertificateStatusSlot courseId={courseId}>
           <div id={`${certCase}_certificate_status`}>
-            <Card.Header title={header} />
+            <div className="px-3 py-2 font-weight-bold border-bottom border-gray-400" style={{ fontSize: '22px' }}> {header} </div>
             <Card.Section className="small text-gray-700">
               {body}
             </Card.Section>
-            <Card.Footer>
-              {buttonText && (buttonLocation || buttonAction) && (
+            {buttonText && (buttonLocation || buttonAction) && (
+              <Card.Footer>
+
                 <Button
                   variant="outline-brand"
                   onClick={() => {
@@ -261,8 +262,9 @@ const CertificateStatus = () => {
                 >
                   {buttonText}
                 </Button>
-              )}
-            </Card.Footer>
+              </Card.Footer>
+            )}
+
           </div>
         </ProgressCertificateStatusSlot>
       </Card>
